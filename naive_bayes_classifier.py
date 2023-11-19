@@ -57,7 +57,7 @@ Y_train = df_train.iloc[:, n-1:]
 print(df_train)
 
 m=145
-df_test = df.iloc[:m, :]
+df_test = df.iloc[:-m, :]
 for col in cont:
     df_test[col],bins = pd.cut(df_test[col], bins = 4, labels = [1,2,3,4], retbins = True)
 X_test = df_test.iloc[:,0:n-1]
@@ -165,7 +165,7 @@ for i in range(0, len(outcome)):
     elif pos_prob > neg_prob:
         outcome[i] = 1
 
-print(outcome)
+#print(outcome)
 Y_test.loc[Y_test["num"] > 0 , "num"] = 1
 Y_test = Y_test.to_numpy()
 
